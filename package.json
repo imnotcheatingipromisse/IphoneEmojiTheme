@@ -1,0 +1,26 @@
+{
+  "name": "emojireplace-discord-theme",
+  "version": "1.4.0",
+  "description": "Replaces Discord emojis with other providers' emojis.",
+  "repository": "github:MiniDiscordThemes/EmojiReplace",
+  "author": "Saltssaumure <themes@saltssaumure.net>",
+  "contributors": [
+    "DevilBro (https://mwittrien.github.io/)",
+    "Saltssaumure <themes@saltssaumure.net>"
+  ],
+  "license": "GPL-2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:rp": "replugged build theme --watch",
+    "build:rp": "replugged bundle theme",
+    "build:rp:all": "replugged bundle theme --all",
+    "lint": "prettier ./scss --check",
+    "lint:fix": "prettier ./scss --write --log-level warn",
+    "release": "replugged release"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "replugged": "^4.7.9"
+  }
+}
