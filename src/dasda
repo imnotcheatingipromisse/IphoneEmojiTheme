@@ -1,0 +1,238 @@
+/**
+ * @name IrisCord Apple Emojis
+ * @description Replaces Discord emojis with native Apple-style emojis for IrisCord
+ * @author IrisCord
+ * @version 2.0.0
+ * @authorId 1222732008040693845
+ * @invite mzHq2Bnjh2
+ * @website https://github.com/imnotcheatingipromisse
+ */
+
+/* =========================================================
+   IRISCORD • APPLE EMOJI REPLACEMENT THEME
+   ========================================================= */
+
+/* ------------------------------
+   IMPORTS
+-------------------------------- */
+
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/_res/ThemeDevBadge.css");
+
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/spritesheets.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/people.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/nature.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/food.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/activity.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/travel.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/objects.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/symbols.css");
+@import url("https://mwittrien.github.io/imnotcheatingipromisse/IphoneEmojiTheme/src/Apple/flags.css");
+
+@namespace xlink "http://www.w3.org/1999/xlink";
+
+/* =========================================================
+   ROOT VARIABLES
+   ========================================================= */
+
+:root {
+
+	/* Emoji Rendering */
+	--iris-emoji-quality: optimizeQuality;
+	--iris-emoji-scale: 1;
+	--iris-emoji-hover-scale: 1.12;
+
+	/* Animation */
+	--iris-transition-speed: 0.18s;
+
+	/* Shadows */
+	--iris-emoji-shadow:
+		0 2px 8px rgba(0, 0, 0, 0.18);
+
+	/* Glow */
+	--iris-emoji-hover-glow:
+		0 0 12px rgba(255,255,255,0.18);
+
+}
+
+/* =========================================================
+   MAIN EMOJI FIXES
+   ========================================================= */
+
+.sprite__04eed {
+
+	/* Remove Discord masking */
+	-webkit-mask: none !important;
+	mask: none !important;
+
+	/* Restore actual emoji image */
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+
+	/* Sprite sheet support */
+	background-position:
+		var(--custom-emoji-sprite-bg-position) !important;
+
+	background-size:
+		var(--custom-emoji-sprite-bg-size) !important;
+
+	/* Rendering */
+	image-rendering: var(--iris-emoji-quality);
+
+	/* Smoothness */
+	transform: scale(var(--iris-emoji-scale));
+
+	transition:
+		transform var(--iris-transition-speed) ease,
+		filter var(--iris-transition-speed) ease,
+		box-shadow var(--iris-transition-speed) ease;
+
+	/* Better visual quality */
+	filter: drop-shadow(var(--iris-emoji-shadow));
+
+	will-change: transform;
+
+}
+
+/* =========================================================
+   HOVER EFFECTS
+   ========================================================= */
+
+.sprite__04eed:hover {
+
+	transform: scale(var(--iris-emoji-hover-scale));
+
+	filter:
+		drop-shadow(var(--iris-emoji-shadow))
+		drop-shadow(var(--iris-emoji-hover-glow));
+
+	z-index: 2;
+
+}
+
+/* =========================================================
+   GRAYSCALE SUPPORT
+   ========================================================= */
+
+.spriteGreyscale__04eed {
+
+	filter:
+		grayscale(1)
+		brightness(0.92)
+		contrast(1.05) !important;
+
+	opacity: 0.92;
+
+}
+
+/* =========================================================
+   BETTER PICKER EMOJIS
+   ========================================================= */
+
+.emojiItem_fc7141,
+.emojiItemMedium_a31c43,
+.emojiItemLarge_c5f6c1 {
+
+	transition:
+		background 0.15s ease,
+		transform 0.15s ease;
+
+	border-radius: 12px;
+
+}
+
+.emojiItem_fc7141:hover,
+.emojiItemMedium_a31c43:hover,
+.emojiItemLarge_c5f6c1:hover {
+
+	transform: scale(1.04);
+
+	background:
+		rgba(255,255,255,0.06) !important;
+
+}
+
+/* =========================================================
+   REACTION EMOJIS
+   ========================================================= */
+
+.reaction_f8896c {
+
+	backdrop-filter: blur(6px);
+
+	border-radius: 14px;
+
+	transition:
+		transform 0.15s ease,
+		background 0.15s ease;
+
+}
+
+.reaction_f8896c:hover {
+
+	transform: translateY(-1px);
+
+	background:
+		rgba(255,255,255,0.08) !important;
+
+}
+
+/* =========================================================
+   MESSAGE EMOJI IMPROVEMENTS
+   ========================================================= */
+
+.emoji.jumboable {
+
+	transform-origin: center;
+
+	transition:
+		transform 0.18s ease,
+		filter 0.18s ease;
+
+}
+
+.emoji.jumboable:hover {
+
+	transform: scale(1.08);
+
+	filter:
+		drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+
+}
+
+/* =========================================================
+   LIGHT MODE SUPPORT
+   ========================================================= */
+
+.theme-light .sprite__04eed {
+
+	filter:
+		drop-shadow(0 1px 4px rgba(0,0,0,0.08));
+
+}
+
+/* =========================================================
+   PERFORMANCE OPTIMIZATION
+   ========================================================= */
+
+.sprite__04eed,
+.emoji,
+.emojiItem_fc7141 {
+
+	backface-visibility: hidden;
+	perspective: 1000px;
+
+}
+
+/* =========================================================
+   OPTIONAL: IRISCORD BRANDING
+   ========================================================= */
+
+:root {
+
+	--iriscord-accent: #7c5cff;
+
+}
+
+/* =========================================================
+   END OF THEME
+   ========================================================= */
